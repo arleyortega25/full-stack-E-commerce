@@ -1,0 +1,61 @@
+<div class="relative max-w-xs bg-white rounded-md shadow-md overflow-hidden">
+  <img
+    [src]="product().urlImg"
+    [alt]="product().name"
+    class="w-full h-48 object-cover"
+  />
+
+  <div
+    class="absolute top-4 right-4 flex justify-center items-center size-12 bg-gradient-to-tl from-yellow-500 to-yellow-300 rounded-full shadow-lg"
+  >
+    <p class="text-sm font-bold text-white">{{ discount | percent }}</p>
+  </div>
+
+  <div class="p-4 flex flex-col gap-3">
+    <h2 class="text-lg sm:text-xl font-bold text-gray-900">
+      {{ product().name || "not name" }}
+    </h2>
+
+    <div class="flex items-center gap-2 text-sm text-gray-600">
+      <svg
+        class="w-4 h-4 fill-yellow-400"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 640 640"
+      >
+        <path
+          d="M341.5 45.1C337.4 37.1 329.1 32 320.1 32C311.1 32 302.8 37.1 298.7 45.1L225.1 189.3L65.2 214.7C56.3 216.1 48.9 222.4 46.1 231C43.3 239.6 45.6 249 51.9 255.4L166.3 369.9L141.1 529.8C139.7 538.7 143.4 547.7 150.7 553C158 558.3 167.6 559.1 175.7 555L320.1 481.6L464.4 555C472.4 559.1 482.1 558.3 489.4 553C496.7 547.7 500.4 538.8 499 529.8L473.7 369.9L588.1 255.4C594.5 249 596.7 239.6 593.9 231C591.1 222.4 583.8 216.1 574.8 214.7L415 189.3L341.5 45.1z"
+        />
+      </svg>
+      <span>{{ product().reviews }} reviews</span>
+    </div>
+
+    <div class="flex items-baseline gap-2">
+      <span class="text-xl font-bold text-gray-900">
+        {{ product().price | currency }}
+      </span>
+      @if (product().previousPrice) {
+      <span class="text-sm font-bold text-gray-500 line-through">
+        {{ product().previousPrice | currency }}
+      </span>
+      }
+    </div>
+
+    <div class="mt-2 text-sm text-gray-500">
+      <a
+        [routerLink]="['products', product().id]"
+        class="inline-flex items-center gap-1 hover:text-gray-700 cursor-pointer transition"
+      >
+        See More
+        <svg
+          class="w-4 h-4"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 640 640"
+        >
+          <path
+            d="M566.6 342.6C579.1 330.1 579.1 309.8 566.6 297.3L406.6 137.3C394.1 124.8 373.8 124.8 361.3 137.3C348.8 149.8 348.8 170.1 361.3 182.6L466.7 288H96C78.3 288 64 302.3 64 320C64 337.7 78.3 352 96 352H466.7L361.3 457.4C348.8 469.9 348.8 490.2 361.3 502.7C373.8 515.2 394.1 515.2 406.6 502.7L566.6 342.7z"
+          />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
