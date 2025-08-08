@@ -5,6 +5,7 @@ import { join } from 'path';
 import { ProductsController } from './products/products.controller';
 import { ProductsService } from './products/products.service';
 import { ProductsModule } from './products/products.module';
+import { PaymentModule } from './payment/payment.module';
 
 
 @Module({
@@ -20,7 +21,8 @@ import { ProductsModule } from './products/products.module';
 ,
         synchronize: true,
       }),
-      ProductsModule],
+      ProductsModule,
+      PaymentModule],
   controllers: [ProductsController],
   providers: [ProductsService],
 })
