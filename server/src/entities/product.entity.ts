@@ -1,5 +1,6 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn, Relation } from 'typeorm';
 import { PurchaseProductEntity } from './purchaseProduct.entity';
+import { NumericColumnTransformer } from 'src/utils/columnNumericTransformer';
 
 @Entity()
 export class ProductEntity {
@@ -12,10 +13,10 @@ export class ProductEntity {
   @Column({ type: 'text' })
   description: string;
 
-  @Column({ type: 'numeric', precision: 10, scale: 2 })
+  @Column({ type: 'numeric', precision: 10, scale: 2 ,transformer: new NumericColumnTransformer()})
   price: number;
 
-  @Column({ type: 'numeric', precision: 10, scale: 2, nullable: true })
+  @Column({ type: 'numeric', precision: 10, scale: 2, nullable: true , transformer: new NumericColumnTransformer()})
   previousPrice: number;
 
   @Column()

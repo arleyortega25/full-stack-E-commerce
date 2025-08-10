@@ -6,6 +6,8 @@ import { ProductsController } from './products/products.controller';
 import { ProductsService } from './products/products.service';
 import { ProductsModule } from './products/products.module';
 import { PaymentModule } from './payment/payment.module';
+import { PurchaseModule } from './purchase/purchase.module';
+import { PurchaseProductModule } from './purchase-product/purchase-product.module';
 
 
 @Module({
@@ -22,7 +24,9 @@ import { PaymentModule } from './payment/payment.module';
         synchronize: true,
       }),
       ProductsModule,
-      PaymentModule],
+      PaymentModule,
+      PurchaseModule,
+      PurchaseProductModule],
   controllers: [ProductsController],
   providers: [ProductsService],
 })
